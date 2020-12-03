@@ -1,4 +1,7 @@
 # test-tkg
+## tunnel SSH :
+ssh ubuntu@IPENV -L 9090:192.168.100.11:80
+
 ## clusters
 dev01, dev02
 kubectl config use-context dev02-admin@dev02
