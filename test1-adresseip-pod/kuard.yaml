@@ -71,7 +71,7 @@ spec:
 # #    kubernetes.io/ingress.class: "traefik"
 # spec:
 #   rules:
-#   - host: test-vip-https-kuard.test.sii24.pole-emploi.intra
+#   - host: test-vip-https-kuard.test.domain
 #     http:
 #       paths:
 #       - path: /
