@@ -1,13 +1,7 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: test1
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: demo-kuard
-  namespace: test1
 spec:
   selector:
     matchLabels:
@@ -48,7 +42,6 @@ kind: Service
 apiVersion: v1
 metadata:
   name: demo-kuard
-  namespace: test1
 spec:
   selector:
     k8s-app: demo-kuard
@@ -57,24 +50,3 @@ spec:
       port: 80
       targetPort: 8080
   type: LoadBalancer
----
-# apiVersion: extensions/v1beta1
-# kind: Ingress
-# metadata:
-#   name: demo-kuard
-#   namespace: test1
-#   labels:
-#     kubernetes.io/name: "demo-kuard"
-#     kubernetes.io/cluster-service: "true"
-#     addonmanager.kubernetes.io/mode: Reconcile
-# #  annotations:
-# #    kubernetes.io/ingress.class: "traefik"
-# spec:
-#   rules:
-#   - host: test-vip-https-kuard.test.domain
-#     http:
-#       paths:
-#       - path: /
-#         backend:
-#           serviceName: demo-kuard
-#           servicePort: 80
