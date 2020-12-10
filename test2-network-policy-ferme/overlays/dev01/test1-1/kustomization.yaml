@@ -11,3 +11,6 @@ bases:
 
 resources:
 - namespace.yaml
+- networkpolicy.yaml
+
+annotations:
