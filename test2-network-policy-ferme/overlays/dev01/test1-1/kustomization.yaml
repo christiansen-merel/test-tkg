@@ -11,4 +11,6 @@ bases:
 
 resources:
 - namespace.yaml
-- networkpolicy.yaml
+
+commonAnnotations:
+  selecteur: test1-1

@@ -11,3 +11,6 @@ bases:
 
 resources:
 - namespace.yaml
+
+commonAnnotations:
+  selecteur: test1-2
