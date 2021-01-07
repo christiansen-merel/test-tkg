@@ -10,5 +10,5 @@ spec:
   - from:
     - namespaceSelector: {}
   egress:
-  - from:
+  - to:
     - namespaceSelector: {}
