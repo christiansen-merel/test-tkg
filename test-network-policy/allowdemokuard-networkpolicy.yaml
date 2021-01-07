@@ -3,9 +3,12 @@ kind: NetworkPolicy
 metadata:
   name: allowdemokuard
 spec:
-  podSelector: {}
+  podSelector:
     matchLabels:
       k8s-app: demo-kuard
   ingress:
+  - from:
+    - namespaceSelector: {}
+  egress:
   - from:
     - namespaceSelector: {}
