@@ -1,0 +1,14 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allowtoolbox
+spec:
+  podSelector:
+    matchLabels:
+      k8s-app: toolbox
+  ingress:
+  - from:
+    - namespaceSelector: {}
+  egress:
+  - to:
+    - namespaceSelector: {}
