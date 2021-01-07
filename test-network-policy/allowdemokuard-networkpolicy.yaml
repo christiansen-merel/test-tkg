@@ -1,0 +1,11 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allowdemokuard
+spec:
+  podSelector: {}
+    matchLabels:
+      k8s-app: demo-kuard
+  ingress:
+  - from:
+    - namespaceSelector: {}
