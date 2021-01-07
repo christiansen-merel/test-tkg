@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: toolbox
+spec:
+  selector:
+    matchLabels:
+      k8s-app: demo-kuard
+  replicas: 1 
+  template:
+    metadata:
+      labels:
+        k8s-app: demo-kuard
+    spec:
+      containers:
+      - name: network-multitool
+        image: praqma/network-multitool
+        resources:
+          limits:
+            cpu: 10m
+            memory: 50Mi
+          requests:
+            cpu: 10m
+            memory: 50Mi
+
