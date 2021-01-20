@@ -1,16 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: demo-kuard
+  name: demo-kuard-2
 spec:
   selector:
     matchLabels:
       k8s-app: demo-kuard
+      groupe: g2
   replicas: 1 
   template:
     metadata:
       labels:
         k8s-app: demo-kuard
+        groupe: g2
     spec:
       containers:
       - name: demo-kuard

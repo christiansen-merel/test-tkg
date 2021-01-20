@@ -4,5 +4,7 @@
   kind: Kustomization
 
   resources:
-  - kuard.yaml  
-  - toolbox.yaml
+  - kuard-1.yaml  
+  - kuard-2.yaml  
+  - toolbox-1.yaml
+  - toolbox-2.yaml

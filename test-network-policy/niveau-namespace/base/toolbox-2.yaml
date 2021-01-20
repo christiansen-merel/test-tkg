@@ -1,16 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: toolbox
+  name: toolbox-2
 spec:
   selector:
     matchLabels:
       k8s-app: toolbox
+      groupe: g2
   replicas: 1 
   template:
     metadata:
       labels:
         k8s-app: toolbox
+        groupe: g2
     spec:
       containers:
       - name: network-multitool

@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-kuard-1
+spec:
+  selector:
+    matchLabels:
+      k8s-app: demo-kuard
+      groupe: g1
+  replicas: 1 
+  template:
+    metadata:
+      labels:
+        k8s-app: demo-kuard
+        groupe: g1
+    spec:
+      containers:
+      - name: demo-kuard
+        image: gcr.io/kuar-demo/kuard-amd64:1
+        ports:
+        - containerPort: 8080
+          name: http
+        readinessProbe:
+          httpGet:
+            path: /healthy
+            port: 8080
+          initialDelaySeconds: 30
+          timeoutSeconds: 30
+        livenessProbe:
+          httpGet:
+            path: /healthy
+            port: 8080
+          initialDelaySeconds: 30
+          timeoutSeconds: 30
+        resources:
+          limits:
+            cpu: 10m
+            memory: 50Mi
+          requests:
+            cpu: 10m
+            memory: 50Mi
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: demo-kuard
+spec:
+  selector:
+    k8s-app: demo-kuard
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer
