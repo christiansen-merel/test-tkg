@@ -1,0 +1,19 @@
+---
+# Source: fluent-bit/templates/overlays/MODIF_ENV/kustomization.yaml
+# Example configuration for the webserver
+# kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: test1-3
+
+bases:
+  - ../../../base
+
+resources:
+- namespace.yaml
+
+commonAnnotations:
+  selecteur: test1-3
+
+commonLabels:
+  groupe: test1-3-1
