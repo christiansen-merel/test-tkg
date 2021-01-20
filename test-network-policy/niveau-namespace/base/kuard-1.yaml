@@ -43,10 +43,11 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: demo-kuard
+  name: demo-kuard-1
 spec:
   selector:
     k8s-app: demo-kuard
+    groupe: g1
   ports:
     - protocol: TCP
       port: 80
