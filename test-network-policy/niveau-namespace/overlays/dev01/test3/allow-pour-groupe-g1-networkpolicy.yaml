@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-pour-groupe-g1
+  namespace: test3
+spec:
+  podSelector:
+    matchLabels:
+      groupe: g1
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          groupe: g1
+  egress:
+  - to:
+    - podSelector:
+        matchLabels:
+          groupe: g1
