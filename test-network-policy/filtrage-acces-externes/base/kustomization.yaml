@@ -1,0 +1,8 @@
+---
+# Source: fluent-bit/templates/base/kustomization.yaml
+  apiVersion: kustomize.config.k8s.io/v1beta1
+  kind: Kustomization
+
+  resources:
+  - kuard.yaml  
+  - toolbox.yaml
